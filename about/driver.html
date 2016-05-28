@@ -9,7 +9,6 @@
   <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link rel="stylesheet" href="../font/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css">
 
 </head>
 <body onload="">
@@ -18,7 +17,7 @@
   <img src="../image/logo.jpg"  height="50px" width="100px">
   <span class="black-text text-darken 2 logo_name ">LetsRide </span><span class="statement">Plan your Trip</span> 
   <div class="login-welcome welcome"> 
-    <span onclick="logout()" class="text-color logout" ><i class="fa fa-circle-o-notch prefix"> </i> Logout</span>
+    <a href='../login/'><span class="text-color logout" ><i class="fa fa-user prefix"> </i> Login</span></a>
   </div>
 </div>
 <nav class="color mynav ">
@@ -28,11 +27,10 @@
     <!-- These navigation links disappear if the screen gets too small. -->
     <ul class="center hide-on-med-and-down">
       <li class="active"><a  href="../index.html">Home</i>
-        <li><a href="../about/index.html" onclick="">Trafic</a></li>
-        <li><a href="../about/fare.html" onclick="">Fare</a></li>
+        <li><a href="../about/index.html" onclick="">Dashboard</a></li>
         <li><a href="../about/bus.html" onclick="">Bus</a></li>
         <li><a href="../about/driver.html" onclick="">Driver</a></li>
-        
+        <li><a href="../about/fare.html" onclick="">Fare</a></li>
 
       </ul>
       <!-- Put up a "hamburger" menu when the web page gets too narrow -->
@@ -41,113 +39,56 @@
       <!-- They appear when the user clicks the hamburger menu. -->
       <ul class="side-nav" id="side-menu">
         <li class="active"><a  href="../index.html">Home</i>
-          <li><a href="../about/index.html" onclick="">Trafic</a></li>
-          <li><a href="../about/fare.html" onclick="">Fare</a></li>
+          <li><a href="../about/index.html" onclick="">Dashboard</a></li>
           <li><a href="../about/bus.html" onclick="">Bus</a></li>
           <li><a href="../about/driver.html" onclick="">Driver</a></li>
-                  <li>
+          <li><a href="../about/fare.html" onclick="">Fare</a></li>
+          <li>
             <a href='../login/'>Login</a>
           </li>
-        </li>
-      </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- end of navbar-->
+    <!-- start of slider-->
+
+    <!-- end of slider-->
+
+    <!--  start of body division-->
+    <div class="">
+      <div class="col l12 s12 top-search">
+        <div class="row">
+          <div class="card">
+            TEMPLATE
+          </div>
+        </div>
+      </div>
     </div>
-  </nav>
-  <!-- end of navbar-->
-  <!-- start of slider-->
 
-  <!-- end of slider-->
+    <!--  end of body division-->
+    <!--  footer section-->        
+    <div class="color">
+     <div class=" page-footer ">
 
-  <!--  start of body division-->
-  <div class="">
-    <div class="col l12 s12 top-search">
-      <div class="row">
-        <div class="card">
-
-          <div class="col ">
-            <div class=" white">
-              <ul class="tabs color">
-                <li class="tab col s6"><a class="active text-color"  href="#login">Add Driver</a></li>
-                <li class="tab col s6"><a href="#signup" onclick="showDrivers()" >My Drivers</a></li>
-              </ul>
-
-              <div id="login" class="col s12 textcontainer ">
-                <div class="login_error_area center" id="login_error_area">
-
-                </div>
-                <div class="input-field col l6 s12">
-                  <i class="fa fa-user prefix"></i>
-                  <input id="dn" type="text" class="validate" autocomplete="off">
-                  <label for="dn">Driver Name</label>
-                </div>
-                <div class="input-field col l6 s12">
-                  <i class="fa fa-envelope prefix"></i>
-                  <input id="de" type="text" class="validate" autocomplete="off">
-                  <label for="de">Driver Email</label>
-                </div>
-                <div class="input-field col l6 s12">
-                  <i class="fa fa-phone prefix"></i>
-                  <input id="dp" type="text" class="validate" autocomplete="off">
-                  <label for="dp">Driver Phone</label>
-                </div>
-                <div class="input-field col l6 s12">
-                 <button onclick="addDriver()" type="submit" class=" btn btn-spacer waves-effect wave-dark loginbtn btnColor center-align">Add Driver</button>
-               </div>
-             </div>
-             <div id="signup" class="col s12 textcontainer">
-              <div class="serror_area center" id="serror_area">
-              </div>
-
-              <table id="jsontable" class="striped" cellspacing="0" width="100%" >
-                <thead>
-                  <tr >
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                  </thead>
-
-                  <tfoot>
-                    <tr>
-                      <th>ID</th>
-                      <th>Name</th>
-                      <th>Email</th>
-                      <th>Phone</th>
-                    </tr>
-                  </tfoot>
-                </table>
-              </div>
-            </div>
-          </div>   
-
+      <div class="footer-copyright color ">
+        <div class="container grey-text text-lighten-4">
+          © 2016 Copyright 
+          <span class="right"><a class="grey-text text-lighten-4 " href="#!">Accra TroTro </a> <span class="by"> By </span><span class="by"> ..... </span></span>
         </div>
       </div>
     </div>
   </div>
+  <!--  end of footer section-->
 
-  <!--  end of body division-->
-  <!--  footer section-->        
-  <div class="color">
-   <div class=" page-footer ">
+  <!--  Scripts-->
+  <script src="../js/jquery.js"></script>
+  <script src="../js/materialize.min.js"></script>
+  <script src="../js/script.js"></script>
 
-    <div class="footer-copyright color ">
-      <div class="container grey-text text-lighten-4">
-        © 2016 Copyright 
-        <span class="right"><a class="grey-text text-lighten-4 " href="#!">Accra TroTro </a> <span class="by"> By </span><span class="by"> ..... </span></span>
-      </div>
-    </div>
-  </div>
-</div>
-<!--  end of footer section-->
+  <script>
 
-<!--  Scripts-->
-<script src="../js/jquery.js"></script>
-<script src="../js/materialize.min.js"></script>
-<script src="../js/jquery.dataTables.js"></script>
-<script src="../js/script.js"></script>
-
-<script>
-
- $(document).ready(function(){
+   $(document).ready(function(){
 
   // showHomeFirstName();
    // Activate the side menu 

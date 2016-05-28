@@ -18,7 +18,7 @@
   <img src="../image/logo.jpg"  height="50px" width="100px">
   <span class="black-text text-darken 2 logo_name ">LetsRide </span><span class="statement">Plan your Trip</span> 
   <div class="login-welcome welcome"> 
-     <span onclick="logout()" class="text-color logout" ><i class="fa fa-circle-o-notch prefix"> </i> Logout</span>
+    <a href='../login/'><span class="text-color logout" ><i class="fa fa-user prefix"> </i> Login</span></a>
   </div>
 </div>
 <nav class="color mynav ">
@@ -28,11 +28,11 @@
     <!-- These navigation links disappear if the screen gets too small. -->
     <ul class="center hide-on-med-and-down">
       <li class="active"><a  href="../index.html">Home</i>
-        <li><a href="../about/index.html" onclick="">Trafic</a></li>
-         <li><a href="../about/fare.html" onclick="">Fare</a></li>
+        <li><a href="../about/index.html" onclick="">Dashboard</a></li>
         <li><a href="../about/bus.html" onclick="">Bus</a></li>
         <li><a href="../about/driver.html" onclick="">Driver</a></li>
-       
+        <li><a href="../about/fare.html" onclick="">Fare</a></li>
+
       </ul>
       <!-- Put up a "hamburger" menu when the web page gets too narrow -->
       <a href="#" data-activates="side-menu" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
@@ -40,12 +40,12 @@
       <!-- They appear when the user clicks the hamburger menu. -->
       <ul class="side-nav" id="side-menu">
         <li class="active"><a  href="../index.html">Home</i>
-          <li><a href="../about/index.html" onclick="">Trafic</a></li>
-           <li><a href="../about/fare.html" onclick="">Fare</a></li>
+          <li><a href="../about/index.html" onclick="">Dashboard</a></li>
           <li><a href="../about/bus.html" onclick="">Bus</a></li>
           <li><a href="../about/driver.html" onclick="">Driver</a></li>
+          <li><a href="../about/fare.html" onclick="">Fare</a></li>
           <li>
-            <a href='#'  onclick="logout()">Logout</a>
+            <a href='../login/'>Login</a>
           </li>
         </li>
       </ul>
@@ -66,8 +66,8 @@
           <div class="col l12">
             <div class=" white">
               <ul class="tabs color">
-              <li class="tab col s6"><a class="active text-color"  href="#login">Add Bus</a></li>
-                <li class="tab col s6"><a href="#signup" onclick="showBuses()" >My Buses</a></li>
+                <li class="tab col s3"><a class="active text-color"  href="#login">Add Bus</a></li>
+                <li class="tab col s3"><a href="#signup">My Buses</a></li>
               </ul>
 
               <div id="login" class="col s12 textcontainer ">
@@ -75,68 +75,72 @@
 
                 </div>
                 <div class="input-field col l6 s12">
-                  <i class="fa fa-user prefix"></i>
+                  <i class="fa fa-location-arrow prefix"></i>
                   <input id="did" type="text" class="validate" autocomplete="off">
                   <label for="did">Driver Id</label>
                 </div>
                 <div class="input-field col l6 s12">
-                  <i class="fa fa-car prefix"></i>
+                  <i class="fa fa-map-marker prefix"></i>
                   <input id="bid" type="text" class="validate" autocomplete="off">
                   <label for="bid">Bus Number</label>
                 </div>
                 <div class="input-field col l6 s12">
-                  <i class="fa fa-building prefix"></i>
+                  <i class="fa fa-location-arrow prefix"></i>
                   <input id="aid" type="text" class="validate" autocomplete="off">
                   <label for="aid">Agency Id</label>
                 </div>
                 <div class="input-field col l6 s12">
-                 <button onclick="addBus()" type="submit" class=" btn btn-spacer waves-effect wave-dark loginbtn btnColor center-align">Add Bus</button>
+                 <button onclick="addBus()" type="submit" class=" btn btn-spacer waves-effect wave-dark loginbtn btnColor center-align">Add Bus</button>>
                </div>
              </div>
              <div id="signup" class="col s12 textcontainer">
               <div class="serror_area center" id="serror_area">
               </div>
 
-              <table id="jsontable" class="striped" cellspacing="0" width="" >
-                <thead>
-                  <tr >
-                    <th>Bus ID</th>
-                    <th>Bus Num</th>
-                    <th>Agency</th>
-                    <th>Driver</th>
-                  </thead>
+              <div class="loginfooter right">
+                <button onclick="showBuses()" type="submit" class="btn btn-spacer waves-effect btnColor center-align">Show </button>
+              </div>
 
-                  <tfoot>
-                    <tr>
-                     <th>Bus ID</th>
-                     <th>Bus Num</th>
-                     <th>Agency</th>
-                     <th>Driver</th>
-                   </tr>
-                 </tfoot>
-               </table>
-             </div>
-           </div>
-         </div>
+               <table id="jsontable" class="striped" cellspacing="0" width="" >
+        <thead>
+          <tr >
+            <th>Bus ID</th>
+            <th>Bus Num</th>
+            <th>Agency</th>
+            <th>Driver</th>
+          </thead>
+
+          <tfoot>
+            <tr>
+               <th>Bus ID</th>
+            <th>Bus Num</th>
+            <th>Agency</th>
+            <th>Driver</th>
+            </tr>
+          </tfoot>
+        </table>
+            </div>
+          </div>
+        </div>
 
 
-       </div>
-     </div>
-   </div>
- </div>
-
- <!--  end of body division-->
- <!--  footer section-->        
- <div class="color">
-   <div class=" page-footer ">
-
-    <div class="footer-copyright color ">
-      <div class="container grey-text text-lighten-4">
-        © 2016 Copyright 
-        <span class="right"><a class="grey-text text-lighten-4 " href="#!">Accra TroTro </a> <span class="by"> By </span><span class="by"> ..... </span></span>
       </div>
     </div>
   </div>
+</div>
+
+<!--  end of body division-->
+<!--  footer section-->        
+<div class="color">
+ <div class=" page-footer ">
+
+  <div class="footer-copyright color ">
+    <div class="container grey-text text-lighten-4">
+      © 2016 Copyright 
+      <span class="right"><a class="grey-text text-lighten-4 " href="#!">Accra TroTro </a> <span class="by"> By </span><span class="by"> ..... </span></span>
+    </div>
+  </div>
+</div>
 </div>
 <!--  end of footer section-->
 

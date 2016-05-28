@@ -300,7 +300,7 @@ function showBuses(){
   mytable.fnClearTable();
   for(i=1;i<objResult.bus.length;i++){
    
-    mytable.fnAddData([ objResult.bus[i].b_id, objResult.bus[i].bus_number,objResult.bus[i].agency_name, objResult.bus[i].driver_name]);
+    mytable.fnAddData([ objResult.bus[i]. b_id, objResult.bus[i]. bus_number,objResult.bus[i].agency_name objResult.bus[i].driver_name]);
   }
 }
 
@@ -313,7 +313,7 @@ function addBus(){
  
  var bid = $("#bid").val();
 
- if(did.length == 0){
+ if(did.did == 0){
   document.getElementById("serror_area").innerHTML = '<div class="chip red white-text">Empty Driver Id field<i class="material-icons">close</i></i></div>';
   return
 }
@@ -327,7 +327,7 @@ if(aid.length == 0){
   return
 }
 
-var strUrl = myurl+"cmd=7&did="+did+"&bid="+bid+"&aid="+aid;
+var strUrl = myurl+"cmd=7&did="+did+"&bid="+l_name+"&aid="+aid;
 // prompt("url",strUrl);
 var objResult = sendRequest(strUrl);
 var errorArea = document.getElementById("serror_area");
@@ -337,111 +337,9 @@ if(objResult.result == 0) {
   return;
 }
 else{
-   $("#did").val("");
-
- $("#aid").val("");
- 
- $("#bid").val("");
+  window.location.href="index.html";
 }
 }
-
-
-function showDrivers(){
-
-  var strUrl = myurl+"cmd=8";
-  // prompt("url", strUrl);
-  var objResult = sendRequest(strUrl);
-
-  if(objResult.result == 0){
-    alert(objResult.message);
-    return;
-  }
-
-  var mytable=$('#jsontable').dataTable();
-  mytable.fnClearTable();
-  for(i=1;i<objResult.driver.length;i++){
-   
-    mytable.fnAddData([ objResult.driver[i].driver_id, objResult.driver[i].driver_name,objResult.driver[i].driver_email, objResult.driver[i].driver_phone]);
-  }
-}
-
-function addDriver(){
-
-
- var dn = $("#dn").val();
-
- var de = $("#de").val();
- 
- var dp = $("#dp").val();
-
- if(dn.length == 0){
-  document.getElementById("serror_area").innerHTML = '<div class="chip red white-text">Empty Driver Name field<i class="material-icons">close</i></i></div>';
-  return
-}
-
-
-if(dp.length == 0){
-  document.getElementById("serror_area").innerHTML = '<div class="chip red white-text">Empty Agency Driver Phone field<i class="material-icons">close</i></i></div>';
-  return
-}
-
-var strUrl = myurl+"cmd=9&dn="+dn+"&de="+de+"&dp="+dp;
-prompt("url",strUrl);
-var objResult = sendRequest(strUrl);
-var errorArea = document.getElementById("serror_area");
-document.getElementById("serror_area").innerHTML = '<div class="progress"><div class="indeterminate"></div></div>';
-if(objResult.result == 0) {
-  document.getElementById("serror_area").innerHTML = '<div class="chip red white-text">'+objResult.message+'<i class="material-icons">close</i></div>';
-  return;
-}
-else{
-   $("#dn").val("");
-
- $("#de").val("");
- 
- $("#dp").val("");
-}
-}
-
-function addTraffic(){
-
-
- var dn = $("#dn").val();
-
- var de = $("#de").val();
- 
- var dp = $("#dp").val();
-
- if(dn.length == 0){
-  document.getElementById("serror_area").innerHTML = '<div class="chip red white-text">Empty Driver Name field<i class="material-icons">close</i></i></div>';
-  return
-}
-
-
-if(dp.length == 0){
-  document.getElementById("serror_area").innerHTML = '<div class="chip red white-text">Empty Agency Driver Phone field<i class="material-icons">close</i></i></div>';
-  return
-}
-
-var strUrl = myurl+"cmd=10&dn="+dn+"&de="+de+"&dp="+dp;
-prompt("url",strUrl);
-var objResult = sendRequest(strUrl);
-var errorArea = document.getElementById("serror_area");
-document.getElementById("serror_area").innerHTML = '<div class="progress"><div class="indeterminate"></div></div>';
-if(objResult.result == 0) {
-  document.getElementById("serror_area").innerHTML = '<div class="chip red white-text">'+objResult.message+'<i class="material-icons">close</i></div>';
-  return;
-}
-else{
-   $("#dn").val("");
-
- $("#de").val("");
- 
- $("#dp").val("");
-}
-}
-
-
 
 
 
