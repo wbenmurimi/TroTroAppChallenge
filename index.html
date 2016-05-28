@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>LetsRide</title>
+
+  <link rel="stylesheet" href="css/materialize.min.css">
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link rel="stylesheet" href="font/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+<body onload="" >
+  <!--start of navbar-->
+  <div class="top-menu">
+    <img src="image/logo.jpg" width="" height="50px" width="100px">
+    <span class="black-text text-darken 2 logo_name ">LetsRide </span><span class="statement">Plan your Trip</span>
+    <div class="login-welcome welcome"> 
+      <a href='login/'><span class="text-color logout" ><i class="fa fa-user prefix"> </i> Login</span></a>
+    </div>
+  </div>
+  <nav class="color mynav ">
+    <div class="nav-wrapper">
+      <!-- <a href="#" class="brand-logo center">Logo </a>   -->
+      <!-- <img src="image/logo.jpg" width="100" height="65"> -->
+      <!-- These navigation links disappear if the screen gets too small. -->
+      <ul class="center hide-on-med-and-down">
+        <li class="active"><a  href="index.html">Home</i>
+
+        </ul>
+        <!-- Put up a "hamburger" menu when the web page gets too narrow -->
+        <a href="#" data-activates="side-menu" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+        <!-- These navigation links appear when the web page gets narrow. -->
+        <!-- They appear when the user clicks the hamburger menu. -->
+        <ul class="side-nav" id="side-menu">
+          <li class="active"><a  href="index.html">Home</i>
+            <li>
+              <a href='login/'><span class="" ><i class="fa fa- prefix"> </i> Login</span></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <!-- end of navbar-->
+      <!-- start of slider-->
+
+      <!-- end of slider-->
+
+      <!--  start of body division-->
+      <div class="">
+        <div class="col l12 s12 top-search">
+          <div class="row">
+            <div class="card">
+              <div class="row">
+                <div class="input-field col l6 s12">
+                  <!--<i class="fa fa-location-arrow prefix"></i>-->
+                  <input id="start" type="text" class="controls validate"  placeholder="Type Start point">
+                  <!-- <label for="start">Start</label>-->
+                </div>
+                <div class="input-field col l6 s12">
+                  <!--<i class="fa fa-map-marker prefix"></i>-->
+
+                  <input id="destination" type="text" class="controls validate"  placeholder="Type Destination ">
+                  <input type="button" id="trafficstatus"  value="TRAFFIC STATUS">
+                  <!--<label for="destination">Destination</label>-->
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+<!-- Modal Structure bus status update-->
+<div id="trafficJam" class="modal">
+  <div class="modal-content">
+    <h5><center>Update Traffic<center></h5>
+    <div class="serror_area center" id="serror_area">
+    </div>
+    <div class="row">
+      <form class="col s12" id="trafficUpdateStatus">
+        <div class="input-field col l6 s12">
+          <i class="fa fa-edit prefix"></i>
+          <input id="desc" type="text" class="validate" autocomplete="off">
+          <label for="desc">Description</label>
+        </div>
+        <div class="input-field col l6 s12">
+          <i class="fa fa-hourglass-end prefix"></i>
+          <select class="level" id="level">
+            <option value="Low">Low</option>
+            <option value="Moderate">Moderate</option>
+            <option value="High">High</option>
+          </select>
+          <label>Level</label> 
+        </div>
+       
+      </form>
+    </div>
+
+  </div>
+  <div class="modal-footer">
+    <a href="" class="red left modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+     <div class="input-field col l6 s12">
+     <a href="" onclick="addTraffic()" class=" btnColor right nextfooter modal-action modal-close waves-effect waves-green btn-flat">Add Traffic</a>
+         <!--  <button onclick="addTraffic()" type="submit" class=" modal-close nextfooter right btn btn-spacer waves-effect wave-dark btnColor center-align">Add Traffic</button> -->
+        </div>
+  </div>
+</div>
+
+<div id="MapCanvas">
+
+</div>
+
+<!-- <button onclick="" type="submit" class="left btn btn-spacer waves-effect wave-dark loginbtn btnColor center-align">Traffic</button>-->
+<div id="mobileShow">
+  <div class="fixed-action-btn horizontal click-to-toggle" style="bottom: 45px; right: 40px;">
+    <a class="btn-floating btn-large red">
+      <i class="material-icons">menu</i>
+    </a>
+    <ul>
+      <li class="modal-trigger" href="#trafficJam"><a class="btn-floating green"><i class="material-icons">add</i>Update Traffic</a></li>  
+    </ul>
+  </div>
+</div>
+
+<!--  end of body division-->
+<!--  footer section-->        
+
+<!--  end of footer section-->
+
+<!--  Scripts-->
+<script src="js/GMap.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAnlZA5fZatiV_US10ZXmG-DwLg3fcmCXQ&libraries&libraries=places&callback=initMap" async defer></script>
+<script src="js/jquery.js"></script>
+<script src="js/materialize.min.js"></script>
+<script src="js/script.js"></script>
+
+<script>
+
+  $(document).ready(function(){
+
+// showHomeFirstName();
+// Activate the side menu 
+$('select').material_select();
+$(".button-collapse").sideNav();
+$('.modal-trigger').leanModal();
+$(".dropdown-button").dropdown();
+$('.modal-trigger').leanModal({
+dismissible: true, // Modal can be dismissed by clicking outside of the modal
+opacity: .3, // Opacity of modal background
+in_duration: 200, // Transition in duration
+out_duration: 200, // Transition out duration
+}
+);
+
+
+$('.datepicker').pickadate({
+selectMonths: true, // Creates a dropdown to control month
+selectYears: 15 // Creates a dropdown of 15 years to control year
+});
+});
+</script>
+</body>
+</html>

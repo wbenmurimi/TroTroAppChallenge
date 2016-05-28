@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">MyRide</string>
+    <string name="track_on">TRACK ON</string>
+    <string name="track_off">TRACK OFF</string>
+    <string name="waiting_for_server_response">Last Location Send At</string>
+    <string name="connection_status">Succesfully Connected to server</string>
+    <string name="http_failed">Connection Failed</string>
+    <string name="malformed_URL">Malformed URL</string>
+    <string name="unknownhostException">UnknownHost</string>
+    <string name="ssl_erroe">SSL Error</string>
+    <string name="url_hint">http://</string>
+    <string name="gps_enabled">GPS ENABLED</string>
+    <string name="gps_disabled">GPS DISABLED</string>
+    <string name="running">MyRide Log is running</string>
+    <string name="Myride_running_since">MyRide Log running since</string>
+    <string name="stopped_service">MyRide Log has Stopped</string>
+    <string name="stopped_on">Stopped on</string>
+    <string name="MyRide_killed">MyRide Application Killed by android</string>
+    <string name="network_enabled">Network Enabled</string>
+    <string name="network_disabled">Network Disabled</string>
+    <string name="server_details">Enter Server Address and specify the Bus ID: </string>
+</resources>
