@@ -143,7 +143,7 @@ if(objResult.result == 0) {
   return;
 }
 else{
-  window.location.href="index.php";
+  window.location.href="index.html";
 }
 }
 
@@ -255,8 +255,90 @@ function showPrices(){
   var mytable=$('#jsontable').dataTable();
   mytable.fnClearTable();
   for(i=1;i<objResult.data.length;i++){
-    mytable.fnAddData([ objResult.data[i].Route_long_name, objResult.data[i].Route_long_name, objResult.data[i].Price]);
+
+    var station = objResult.data[i].route_long_name.split("to");
+       var from = station[0];
+     var to = station[station.length-1];
+    mytable.fnAddData([ from, to, objResult.data[i].Price]);
   }
+}
+
+
+
+function showStops(){
+
+  var strUrl = myurl+"cmd=5";
+  // prompt("url", strUrl);
+  var objResult = sendRequest(strUrl);
+
+  if(objResult.result == 0){
+    alert(objResult.message);
+    return;
+  }
+
+  for(i=1;i<objResult.stops.length;i++){
+
+     objResult.stops[i].stop_name;
+     objResult.stops[i].stop_lat;
+     objResult.stops[i].stop_lon;
+  }
+}
+
+
+function showBuses(){
+
+  var strUrl = myurl+"cmd=6";
+  // prompt("url", strUrl);
+  var objResult = sendRequest(strUrl);
+
+  if(objResult.result == 0){
+    alert(objResult.message);
+    return;
+  }
+
+  var mytable=$('#jsontable').dataTable();
+  mytable.fnClearTable();
+  for(i=1;i<objResult.bus.length;i++){
+   
+    mytable.fnAddData([ objResult.bus[i]. b_id, objResult.bus[i]. bus_number,objResult.bus[i].agency_name objResult.bus[i].driver_name]);
+  }
+}
+
+function addBus(){
+
+
+ var did = $("#did").val();
+
+ var aid = $("#aid").val();
+ 
+ var bid = $("#bid").val();
+
+ if(did.did == 0){
+  document.getElementById("serror_area").innerHTML = '<div class="chip red white-text">Empty Driver Id field<i class="material-icons">close</i></i></div>';
+  return
+}
+if(bid.length == 0){
+  document.getElementById("serror_area").innerHTML = '<div class="chip red white-text">Empty Bus Id field<i class="material-icons">close</i></i></div>';
+  return
+}
+
+if(aid.length == 0){
+  document.getElementById("serror_area").innerHTML = '<div class="chip red white-text">Empty Agency Id field<i class="material-icons">close</i></i></div>';
+  return
+}
+
+var strUrl = myurl+"cmd=7&did="+did+"&bid="+l_name+"&aid="+aid;
+// prompt("url",strUrl);
+var objResult = sendRequest(strUrl);
+var errorArea = document.getElementById("serror_area");
+document.getElementById("serror_area").innerHTML = '<div class="progress"><div class="indeterminate"></div></div>';
+if(objResult.result == 0) {
+  document.getElementById("serror_area").innerHTML = '<div class="chip red white-text">'+objResult.message+'<i class="material-icons">close</i></div>';
+  return;
+}
+else{
+  window.location.href="index.html";
+}
 }
 
 

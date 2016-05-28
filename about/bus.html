@@ -2,20 +2,21 @@
 
 <html>
 <head>
-  <title>Let's Ride</title>
+  <title>LetsRide</title>
   
   <link rel="stylesheet" href="../css/materialize.min.css">
   <link rel="stylesheet" href="../css/materialize.css">
   <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link rel="stylesheet" href="../font/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css">
 
 </head>
 <body onload="">
  <!--start of navbar-->
  <div class="top-menu">
   <img src="../image/logo.jpg"  height="50px" width="100px">
-  <span class="black-text text-darken 2 logo_name ">Let's Ride </span><span class="statement">Plan your Trip</span> 
+  <span class="black-text text-darken 2 logo_name ">LetsRide </span><span class="statement">Plan your Trip</span> 
   <div class="login-welcome welcome"> 
     <a href='../login/'><span class="text-color logout" ><i class="fa fa-user prefix"> </i> Login</span></a>
   </div>
@@ -46,49 +47,112 @@
           <li>
             <a href='../login/'>Login</a>
           </li>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    <!-- end of navbar-->
-    <!-- start of slider-->
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- end of navbar-->
+  <!-- start of slider-->
 
-    <!-- end of slider-->
+  <!-- end of slider-->
 
-    <!--  start of body division-->
-    <div class="">
-      <div class="col l12 s12 top-search">
-        <div class="row">
-          <div class="card">
-            TEMPLATE
+  <!--  start of body division-->
+  <div class="">
+    <div class="col l12 s12 top-search">
+      <div class="row">
+        <div class="card">
+
+
+          <div class="col l12">
+            <div class=" white">
+              <ul class="tabs color">
+                <li class="tab col s3"><a class="active text-color"  href="#login">Add Bus</a></li>
+                <li class="tab col s3"><a href="#signup">My Buses</a></li>
+              </ul>
+
+              <div id="login" class="col s12 textcontainer ">
+                <div class="login_error_area center" id="login_error_area">
+
+                </div>
+                <div class="input-field col l6 s12">
+                  <i class="fa fa-location-arrow prefix"></i>
+                  <input id="did" type="text" class="validate" autocomplete="off">
+                  <label for="did">Driver Id</label>
+                </div>
+                <div class="input-field col l6 s12">
+                  <i class="fa fa-map-marker prefix"></i>
+                  <input id="bid" type="text" class="validate" autocomplete="off">
+                  <label for="bid">Bus Number</label>
+                </div>
+                <div class="input-field col l6 s12">
+                  <i class="fa fa-location-arrow prefix"></i>
+                  <input id="aid" type="text" class="validate" autocomplete="off">
+                  <label for="aid">Agency Id</label>
+                </div>
+                <div class="input-field col l6 s12">
+                 <button onclick="addBus()" type="submit" class=" btn btn-spacer waves-effect wave-dark loginbtn btnColor center-align">Add Bus</button>>
+               </div>
+             </div>
+             <div id="signup" class="col s12 textcontainer">
+              <div class="serror_area center" id="serror_area">
+              </div>
+
+              <div class="loginfooter right">
+                <button onclick="showBuses()" type="submit" class="btn btn-spacer waves-effect btnColor center-align">Show </button>
+              </div>
+
+               <table id="jsontable" class="striped" cellspacing="0" width="" >
+        <thead>
+          <tr >
+            <th>Bus ID</th>
+            <th>Bus Num</th>
+            <th>Agency</th>
+            <th>Driver</th>
+          </thead>
+
+          <tfoot>
+            <tr>
+               <th>Bus ID</th>
+            <th>Bus Num</th>
+            <th>Agency</th>
+            <th>Driver</th>
+            </tr>
+          </tfoot>
+        </table>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
 
-    <!--  end of body division-->
-    <!--  footer section-->        
-    <div class="color">
-     <div class=" page-footer ">
 
-      <div class="footer-copyright color ">
-        <div class="container grey-text text-lighten-4">
-          © 2016 Copyright 
-          <span class="right"><a class="grey-text text-lighten-4 " href="#!">Accra TroTro </a> <span class="by"> By </span><span class="by"> ..... </span></span>
-        </div>
       </div>
     </div>
   </div>
-  <!--  end of footer section-->
+</div>
 
-  <!--  Scripts-->
-  <script src="../js/jquery.js"></script>
-  <script src="../js/materialize.min.js"></script>
-  <script src="j../s/script.js"></script>
+<!--  end of body division-->
+<!--  footer section-->        
+<div class="color">
+ <div class=" page-footer ">
 
-  <script>
+  <div class="footer-copyright color ">
+    <div class="container grey-text text-lighten-4">
+      © 2016 Copyright 
+      <span class="right"><a class="grey-text text-lighten-4 " href="#!">Accra TroTro </a> <span class="by"> By </span><span class="by"> ..... </span></span>
+    </div>
+  </div>
+</div>
+</div>
+<!--  end of footer section-->
 
-   $(document).ready(function(){
+<!--  Scripts-->
+<script src="../js/jquery.js"></script>
+<script src="../js/materialize.min.js"></script>
+<script src="../js/jquery.dataTables.js"></script>
+<script src="../js/script.js"></script>
+
+<script>
+
+ $(document).ready(function(){
 
   // showHomeFirstName();
    // Activate the side menu 

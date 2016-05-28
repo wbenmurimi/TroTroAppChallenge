@@ -23,7 +23,7 @@ switch ($cmd) {
   getAllFare();
   break;
   case 5:
-  resetPassword();
+  getAllStops();
   break;
   case 6:
   subscribeAlert();
@@ -96,8 +96,6 @@ function userSignUp(){
   $myuser = new users();
   $fname = $_GET['fname'];
   $lname = $_GET['lname'];
-  $houseno = $_GET['houseno'];
-  $location = $_GET['location'];
   $username = $_GET['username'];
   $password = $_GET['password'];
   $phone = $_GET['phone'];
@@ -169,6 +167,30 @@ function getAllFare(){
   }
 
   echo '{"result": 1, "data": [';
+  while($row){
+    echo json_encode($row);
+    $row = $data->fetch();
+    if($row){
+      echo ',';
+    }
+  }
+  echo "]}";
+  return;
+}
+
+
+function getAllStops(){
+  include "../classes/data.php";
+
+  $data = new data();
+
+  $row = $data->fetchStops();
+  if(!$row){
+    echo '{"result": 0, "message": "You have not made any orders"}';
+    return;
+  }
+
+  echo '{"result": 1, "stops": [';
   while($row){
     echo json_encode($row);
     $row = $data->fetch();

@@ -12,10 +12,22 @@ class data extends base{
   function fetchFares()
   {
 
-    $str_query = "SELECT Fare_attributes.Price ,Fare_attributes.Fare_id, Fare_rules.Fare_id,Fare_rules.Route_id, Routes.Route_long_name, Routes.Route_id 
-    FROM Fare_rules,Fare_attributes,Routes
-    where Fare_attributes.Fare_id=Fare_rules.Fare_id ANDFare_rules.Route_id= Routes.Route_id 
-    ORDER BY Routes.Route_long_name ASC";
+    $str_query = "SELECT fare_attributes.Price , routes.route_long_name
+     FROM Fare_rules,Fare_attributes,Routes 
+     where fare_attributes.Fare_id=fare_rules.Fare_id 
+     AND fare_rules.Route_id= routes.Route_id 
+     ORDER BY routes.route_long_name ASC";
+
+    return $this->query($str_query);
+  }
+
+
+    function fetchStops()
+  {
+
+    $str_query = "SELECT stops.*
+     FROM stops 
+     ORDER BY stop_name ASC";
 
     return $this->query($str_query);
   }
