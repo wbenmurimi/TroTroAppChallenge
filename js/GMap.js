@@ -38,7 +38,7 @@ var indexurl = "http://10.249.226.168/TroTroAppChallenge/model/main.php";
  */
 
 
-var url = "http://166.62.103.147/~ashesics/class2016/beatrice_migaliza/MyRide/public_html/PHP/";
+//var url = "http://166.62.103.147/~ashesics/class2016/beatrice_migaliza/MyRide/public_html/PHP/";
 
 function initMap() {
     
