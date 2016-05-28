@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 </head>
-<body onload="">
+<body onload="" >
  <!--start of navbar-->
  <div class="top-menu">
   <img src="image/logo.jpg" width="" height="50px" width="100px">
@@ -57,21 +57,30 @@
           <div class="card">
             <div class="row">
               <div class="input-field col l6 s12">
-              <i class="fa fa-location-arrow prefix"></i>
-                <input id="start" type="text" class="validate" autocomplete="off">
-                <label for="start">Start</label>
+              <!--<i class="fa fa-location-arrow prefix"></i>-->
+                <input id="start" type="text" class="controls validate"  placeholder="Type Start point">
+               <!-- <label for="start">Start</label>-->
               </div>
               <div class="input-field col l6 s12">
-                <i class="fa fa-map-marker prefix"></i>
-                <input id="destination" type="text" class="validate" autocomplete="off">
-                <label for="destination">Destination</label>
+                <!--<i class="fa fa-map-marker prefix"></i>-->
+              
+            <input id="destination" type="text" class="controls validate"  placeholder="Type Destination ">
+              <input type="button" id="trafficstatus"  value="TRAFFIC STATUS">
+                <!--<label for="destination">Destination</label>-->
               </div>
             </div>
-            <div>
-            MAP GOES HERE
+           
+          </div>
+        </div>
+      </div>
+    </div>
+     <div id="MapCanvas">
+           
             </div>
-            <button onclick="" type="submit" class="left btn btn-spacer waves-effect wave-dark loginbtn btnColor center-align">Traffic</button>
-            <div class="fixed-action-btn horizontal click-to-toggle" style="bottom: 45px; right: 24px;">
+            
+           <!-- <button onclick="" type="submit" class="left btn btn-spacer waves-effect wave-dark loginbtn btnColor center-align">Traffic</button>-->
+        <div id="mobileShow">
+            <div class="fixed-action-btn horizontal click-to-toggle" style="bottom: 45px; right: 40px;">
               <a class="btn-floating btn-large red">
                 <i class="material-icons">menu</i>
               </a>
@@ -79,13 +88,11 @@
                 <li><a class="btn-floating green"><i class="material-icons">add</i>Update Traffic</a></li>  
               </ul>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
 
-    <!--  end of body division-->
+    <!--  end of body division-
     <!--  footer section-->        
+<!--
     <div class="color">
      <div class=" page-footer ">
 
@@ -97,9 +104,12 @@
       </div>
     </div>
   </div>
+-->
   <!--  end of footer section-->
 
   <!--  Scripts-->
+  <script src="js/GMap.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAnlZA5fZatiV_US10ZXmG-DwLg3fcmCXQ&libraries&libraries=places&callback=initMap" async defer></script>
   <script src="js/jquery.js"></script>
   <script src="js/materialize.min.js"></script>
   <script src="js/script.js"></script>
