@@ -1,3 +1,49 @@
+#MapCanvas{
+    margin: 0 auto;
+    //width:100%;
+    height: 85%;
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+}
+
+html, body{
+    height: 100%;
+    width:100%;
+}
+
+
+#destination {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 300px;
+}
+
+#destination:focus {
+  border-color: #4d90fe;
+}
+
+
+#start {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 300px;
+}
+
+#start:focus {
+  border-color: #4d90fe;
+}
+
+
 
 .mybreadcrumb{
   height: 20px;
@@ -111,12 +157,14 @@ footer{
 /*.mynav2 li{
   width: 150px;
 }*/
+/*
 #map {
   width: 100%; 
-  height: 300px;
-  margin: 0;
-  padding: 15px;
+  height: 80%;
+  margin-top: 0.4%;
+  padding: 18%;
 }
+*/
 #post_area_li{
   list-style-type: none;
   width: 100%;
