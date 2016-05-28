@@ -20,7 +20,7 @@ switch ($cmd) {
   logout();
   break;
   case 4:
-
+  getAllFare();
   break;
   case 5:
   resetPassword();
@@ -74,7 +74,6 @@ function login(){
     $_SESSION['userId']= $row['xx_user_id'];
     $_SESSION['fname']= $row['xx_fname'];
      $_SESSION['type']= $row['xx_user_type'];
-     $_SESSION['ulocation']= $row['xx_location'];
     echo '{"result": 1, "user": [';
     while($row){
       echo json_encode($row);
@@ -145,20 +144,31 @@ function logout(){
   return;
 }
 
+function getuserSession(){
+  if(!$_SESSION["username"]){
+    echo '{"result": 0, "message": "No session stored"}';
+    return;  
+  }
+  echo '{"result": 1, "message": "'.$_SESSION["username"].'"}';
+
+  return;
+
+}
 
 
-function fetchOrders(){
+
+function getAllFare(){
   include "../classes/data.php";
 
   $data = new data();
 
-  $row = $data->fetchOrders();
+  $row = $data->fetchFares();
   if(!$row){
     echo '{"result": 0, "message": "You have not made any orders"}';
     return;
   }
 
-  echo '{"result": 1, "order": [';
+  echo '{"result": 1, "data": [';
   while($row){
     echo json_encode($row);
     $row = $data->fetch();
@@ -170,16 +180,7 @@ function fetchOrders(){
   return;
 }
 
-function getuserSession(){
-  if(!$_SESSION["username"]){
-    echo '{"result": 0, "message": "No session stored"}';
-    return;  
-  }
-  echo '{"result": 1, "message": "'.$_SESSION["username"].'"}';
 
-  return;
-
-}
 
   
 

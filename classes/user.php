@@ -18,12 +18,10 @@ class users extends base{
         return $this->query($str_query);
     }
     /**
-     * @method boolean signUp($fname,$lname,$houseno,$location,$username,$password,$user_email,$phone,$usertype,
+     * @method boolean signUp($fname,$lname,$username,$password,$user_email,$phone,$usertype,
      *$user_status) sign up information of user to be stored in the database
      * @param $fname user first name
      * @param $lname user last name
-     * @param $location user location
-     * @param $houseno user house no
      * @param $username name user will sign in with
      * @param $password password of user
      * @param $user_email email of user

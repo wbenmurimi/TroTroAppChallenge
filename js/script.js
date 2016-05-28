@@ -62,10 +62,10 @@ function sendRequest(u) {
   // alert(my_user_type);
 
   if (my_user_type.localeCompare("Admin")==0) {
-    window.location.href ="../create-order/view.php"
+    window.location.href ="../about/index.php"
   }
   else if (my_user_type.localeCompare("Regular")==0) {
-    window.location.href = "../my orders/index.php";
+    window.location.href = "../about/index.php";
   }
 
 }
@@ -208,8 +208,6 @@ function showHomeFirstName(){
 $("#LoggedUser").text(objResult.uname[0].person);
 }
 
-
-
   function logout(){
    var strUrl = myurl+"cmd=3";
  // prompt("url",strUrl);
@@ -236,5 +234,38 @@ alert(objResult.message);
 window.location.href = "index.php";
 
 }
+
+
+
+
+// Implementing data functionality
+
+
+function showPrices(){
+
+  var strUrl = myurl+"cmd=4";
+  // prompt("url", strUrl);
+  var objResult = sendRequest(strUrl);
+
+  if(objResult.result == 0){
+    alert(objResult.message);
+    return;
+  }
+
+  var mytable=$('#jsontable').dataTable();
+  mytable.fnClearTable();
+  for(i=1;i<objResult.data.length;i++){
+    mytable.fnAddData([ objResult.data[i].Route_long_name, objResult.data[i].Route_long_name, objResult.data[i].Price]);
+  }
+}
+
+
+
+
+
+
+
+
+
 
 

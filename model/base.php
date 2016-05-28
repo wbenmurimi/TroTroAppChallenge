@@ -5,7 +5,7 @@
  */
 
 define("DB_HOST", 'localhost');
-define("DB_NAME", 'city');
+define("DB_NAME", 'letsride');
 define("DB_PORT", 3306);
 define("DB_USER", "root");
 define("DB_PWORD", "");
@@ -71,20 +71,15 @@ class base {
             return true;
         }
         //try to connect to db
-        $this->link = mysql_connect(DB_HOST, DB_USER, DB_PWORD);
+        $this->link = mysqli_connect(DB_HOST, DB_USER, DB_PWORD,DB_NAME);
 
         if (!$this->link) {
             //if connection fail log error and set $str_error
             //echo "not connected";	//debug line
-            $this->log_error(LOG_LEVEL_DB_FAIL, 1, "connection failed  in db:connect()", mysql_error());
+            $this->log_error(LOG_LEVEL_DB_FAIL, 1, "connection failed  in db:connect()", mysqli_connect_error());
             return false;
         }
-        //echo "connected";
-        if (!mysql_select_db(DB_NAME)) {
-
-            $log_id = $this->log_error(LOG_LEVEL_DB_FAIL, 2, "select db failed   in db:connect()", mysql_error($this->link));
-            return false;
-        }
+      
 
         return true;
     }
@@ -93,7 +88,7 @@ class base {
      * returns a row from a data set
      */
     function fetch() {
-        return mysql_fetch_assoc($this->result);
+        return mysqli_fetch_assoc($this->result);
     }
 
     /**
@@ -105,9 +100,9 @@ class base {
             return false;
         }
 
-        $this->result = mysql_query($str_sql, $this->link);
+        $this->result = mysqli_query( $this->link, $str_sql);
         if (!$this->result) {
-            $this->log_error(LOG_LEVEL_DB_FAIL, 4, "query failed", mysql_error($this->link));
+            $this->log_error(LOG_LEVEL_DB_FAIL, 4, "query failed", mysqli_connect_error($this->link));
             return false;
         }
 
