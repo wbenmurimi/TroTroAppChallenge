@@ -8,7 +8,7 @@ include "../model/base.php";
 class data extends base{
 
 
-
+//fetching routes
   function fetchFares()
   {
 
@@ -21,7 +21,7 @@ class data extends base{
     return $this->query($str_query);
   }
 
-
+//fetching stops
     function fetchStops()
   {
 
@@ -32,21 +32,65 @@ class data extends base{
     return $this->query($str_query);
   }
 
-
-
-
-
-
-
-
-
-  function addOrder($name,$qty,$cost, $userId,$pick,$deliver,$service)
+//fetching buses
+ 
+  function fetchBuses($by)
   {
-    $str_query = "INSERT INTO _orders(item_names, item_quantities, total_cost,user_id, pick_up_day, delivery_day,service) 
-    VALUES('$name','$qty','$cost', '$userId','$pick','$deliver','$service')";
+
+    $str_query = "SELECT Agency.agency_name , driver.driver_name,bus.b_id, bus.bus_number
+     FROM bus,driver,Agency 
+     where bus.driver_id=driver.driver_id 
+     AND bus.agency_id= Agency.agency_id 
+     AND bus.added_by='$by'
+     ORDER BY agency_name ASC";
+
+     return $this->query($str_query);
+   }
+
+  //adding a bus
+
+  function addBus($bid,$did,$aid,$by)
+  {
+    $str_query = "INSERT INTO bus(bus_number, driver_id, agency_id,added_by) 
+    VALUES('$bid','$did','$aid',$by)";
 
     return $this->query($str_query);
   }
+
+  function fetchDrivers($by)
+  {
+
+    $str_query = "SELECT driver.*
+     FROM driver
+     where driver .added_by='$by'
+     ORDER BY driver_name ASC";
+
+     return $this->query($str_query);
+   }
+
+   //adding a bus
+
+  function addDriver($dn,$de,$dp,$by)
+  {
+    $str_query = "INSERT INTO driver(driver_name, driver_email, driver_phone,added_by) 
+    VALUES('$dn','$de','$dp',$by)";
+
+    return $this->query($str_query);
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   function getMyOrders($userId)
   {
