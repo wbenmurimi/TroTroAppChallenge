@@ -8,7 +8,8 @@
 
 
 /* global google */
-
+var myurl = "../model/main.php";
+var urlHome = "model/main.php";
 
 /*var coords;
  
@@ -161,19 +162,19 @@ function initMap() {
 
 
 
-    /*function displayBusStops() {
-        var theUrl = url + "request.php?cmd=5";
+    function displayBusStops() {
+        var theUrl = urlHome + "?cmd=5";
         var object = sendRequest(theUrl);
 
         if (object.result === 1) {
             var buses = [];
-            $.each(object.busStops, function (i, busStops) {
-                var latitude = busStops.Latitude;
-                var longitude = busStops.Longitude;
-                var stopName = busStops.Bus_Stop_Name;
-                var busNames = busStops.Bus_Name;
+            $.each(object.stops, function (i, busStops) {
+                var latitude = busStops.stop_lat;
+                var longitude = busStops.stop_lon;
+                var stopName = busStops.stop_name;
+                var stopId = busStops.stop_id;
 
-                buses[i] = busNames;
+               // buses[i] = busNames;
 
                 var info = '<div id="content">' + '<div id="siteNotice">' + '<div class="row">' + '<p> <b>Bus Stop Name: ' + stopName
                         + '</b></p></div></div>';
@@ -182,7 +183,7 @@ function initMap() {
                     content: info
                 });
 
-                var busIcon = new google.maps.MarkerImage("images/busStopI.png", null, null, null, new google.maps.Size(30, 30));
+                var busIcon = new google.maps.MarkerImage("image/busStopI.png", null, null, null, new google.maps.Size(30, 30));
 
                 var marker = new google.maps.Marker({
                     map: map,
@@ -199,7 +200,7 @@ function initMap() {
         }
     }
 
-    displayBusStops();*/
+    displayBusStops();
 
     var directionsService = new google.maps.DirectionsService;
     var directionsDisplay = new google.maps.DirectionsRenderer;

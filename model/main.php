@@ -26,19 +26,19 @@ switch ($cmd) {
   getAllStops();
   break;
   case 6:
-  getAllBuses();
+  subscribeAlert();
   break;
   case 7:
-  addBus();
+  showCustomers();
   break;
   case 8:
-  getAllDrivers();
+  addOrder();
   break;
   case 9:
-  addDriver();
+  fetchOrders();
   break;
   case 10:
-  addTraffic();
+  fetchMyOrders();
   break;
   case 11:
   fetchItems();
@@ -73,7 +73,7 @@ function login(){
     $_SESSION['username'] = $username;
     $_SESSION['userId']= $row['xx_user_id'];
     $_SESSION['fname']= $row['xx_fname'];
-    $_SESSION['type']= $row['xx_user_type'];
+     $_SESSION['type']= $row['xx_user_type'];
     echo '{"result": 1, "user": [';
     while($row){
       echo json_encode($row);
@@ -136,8 +136,8 @@ function logout(){
   }
   session_destroy();
   unset($_SESSION['userId']);
-  unset($_SESSION['fname']);
-  unset($_SESSION['type']);
+   unset($_SESSION['fname']);
+    unset($_SESSION['type']);
   echo '{"result": 1, "message": "The user Loged out successfully"}';
   return;
 }
@@ -202,115 +202,9 @@ function getAllStops(){
   return;
 }
 
-function getAllBuses(){
-  include "../classes/data.php";
-
-  $data = new data();
-
-  $by= $_SESSION['userId'];
-
-  $row = $data->fetchBuses($by);
-  if(!$row){
-    echo '{"result": 0, "message": "You have no buses"}';
-    return;
-  }
-
-  echo '{"result": 1, "bus": [';
-  while($row){
-    echo json_encode($row);
-    $row = $data->fetch();
-    if($row){
-      echo ',';
-    }
-  }
-  echo "]}";
-  return;
-}
-
-function addBus(){
-  include "../classes/data.php";
-
-  $data = new data();
-  $bid = $_GET['bid'];
-  $did = $_GET['did'];
-  $aid = $_GET['aid'];
-  $by= $_SESSION['userId'];
-
-  if(!$data->addBus($bid,$did,$aid,$by)){
-    echo '{"result": 0, "message": "Bus not added"}';
-    return;
-  }
-  echo '{"result": 1, "message": "Bus added successfully"}';
-
-  return;
-}
 
 
-function getAllDrivers(){
-  include "../classes/data.php";
-
-  $data = new data();
-
-  $by= $_SESSION['userId'];
-
-  $row = $data->fetchDrivers($by);
-  if(!$row){
-    echo '{"result": 0, "message": "You have no buses"}';
-    return;
-  }
-
-  echo '{"result": 1, "driver": [';
-  while($row){
-    echo json_encode($row);
-    $row = $data->fetch();
-    if($row){
-      echo ',';
-    }
-  }
-  echo "]}";
-  return;
-}
-
-function addDriver(){
-  include "../classes/data.php";
-
-  $data = new data();
-  $dn = $_GET['dn'];
-  $de = $_GET['de'];
-  $dp = $_GET['dp'];
-  $by= $_SESSION['userId'];
-
-  if(!$data->addDriver($dn,$de,$dp,$by)){
-    echo '{"result": 0, "message": "Bus not added"}';
-    return;
-  }
-  echo '{"result": 1, "message": "Bus added successfully"}';
-
-  return;
-}
-
-function addTraffic(){
-  include "../classes/data.php";
-
-  $data = new data();
-  $dn = $_GET['dn'];
-  $de = $_GET['de'];
-  $dp = $_GET['dp'];
-  $by= $_SESSION['userId'];
-
-  if(!$data->addTraffic($dn,$de,$dp,$by)){
-    echo '{"result": 0, "message": "Bus not added"}';
-    return;
-  }
-  echo '{"result": 1, "message": "Bus added successfully"}';
-
-  return;
-}
-
-
-
-
-
+  
 
 ob_end_flush();
 
