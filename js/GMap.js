@@ -9,7 +9,7 @@
 
 /* global google */
 var myurl = "../model/main.php";
-var indexurl = "model/main.php";
+var indexurl = "http://10.249.226.168/TroTroAppChallenge/model/main.php";
 
 /*var coords;
  
