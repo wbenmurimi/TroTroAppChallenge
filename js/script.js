@@ -1,5 +1,5 @@
 
-var myurl = "http://10.249.226.168/TroTroAppChallenge/model/main.php?";
+var myurl = "http://10.249.226.168/TroTroAppChallenge/model/main.php";
 var urlHome = "model/main.php?";
 function sendRequest(u) {
     // Send request to server
